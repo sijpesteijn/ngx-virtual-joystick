@@ -1,10 +1,6 @@
 import {
-    AfterViewInit, Component,
-    ComponentFactory,
-    ComponentFactoryResolver, ComponentRef, Directive, ElementRef, EventEmitter, HostListener,
-    Input,
-    OnInit, Output, ViewChild,
-    ViewContainerRef
+    AfterViewInit, Component, ElementRef, EventEmitter, HostListener,
+    Input, Output, ViewChild,
 } from '@angular/core';
 
 @Component({
