@@ -57,5 +57,4 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
             this.onChange.emit({deltaX: -1 * (this.startX - event.offsetX), deltaY: this.startY - event.offsetY});
         }
     }
-
 }
