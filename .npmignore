@@ -1,0 +1,9 @@
+
+/.yo-rc.json
+/.travis.yml
+/.npmrc
+/.idea/
+/coverage/
+/test/
+/node_modules/
+

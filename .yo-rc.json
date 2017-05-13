@@ -1,0 +1,14 @@
+{
+  "generator-angular-library": {
+    "githubUsername": "sijpesteijn",
+    "githubRepoName": "ngx-virtual-joystick",
+    "npmModuleName": "ngx-virtual-joystick",
+    "allowNg2InModuleName": true,
+    "moduleGlobal": "ngxVirtualJoystick",
+    "ngModuleName": "NgxVirtualJoystickModule",
+    "selectorPrefix": "/",
+    "projectTitle": "ngx virtual joystick",
+    "projectDescription": "",
+    "authorName": "gijs.sijpesteijn"
+  }
+}

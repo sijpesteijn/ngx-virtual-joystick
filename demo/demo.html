@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-md-10 col-xs-12 col-md-offset-1 push-md-1">
+        <div class="content-header">
+            <h1>Virtual Joystick</h1>
+        </div>
+
+        <div class="content-box" id="content">
+
+            <div class="section" id="example">
+                <div class="item">
+
+                    <p>Virtual Joystick is an trash icon component.</p>
+
+                    <h2>Contents</h2>
+                    <ul>
+                        <li><a fragment="examples" routerlink="." href="#usage">Usage</a></li>
+                        <li><a fragment="examples" routerlink="." href="#examples">Examples</a>
+                            <ul>
+                                <li><a fragment="default" routerlink="." href="#default">Default</a></li>
+                                <li><a fragment="custom_question" routerlink="." href="#custom_question">Custom question</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h2 fragment="usage" id="usage" routerlink=".">Usage</h2>
+
+                    <pre>
+            import &#123; NgxVirtualJoystickModule &#125; from 'ngx-virtual-joystick';&#xD;
+
+            @NgModule(&#123;
+                imports: [NgxVirtualJoystickModule.forRoot(),...]
+            &#125;)
+            export class AppModule()&#123;&#125;</pre>
+
+                    <h2 fragment="examples" id="examples" routerlink=".">Examples</h2>
+                    <p></p>
+
+                    <h2 fragment="default" id="default" routerlink=".">Default use.</h2>
+
+                    <p>Default usage.</p>
+
+                    <div class="section cte-example">
+                        <virtual-joystick (onChange)="show($event)"></virtual-joystick>
+                        deltaX: {{ point?.deltaX }} deltaY: {{ point?.deltaY }}
+                    </div>
+                    <div class="section">
+                        <div class="item">
+                            <div class="tab-container">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item" [class.active]="isActive('default','template')">
+                                        <a class="nav-link" (click)="activate('default','template')"
+                                           href="javascript:void(0);">
+                                            <span>template</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" [class.active]="isActive('default','component')">
+                                        <a class="nav-link" (click)="activate('default','component')"
+                                           href="javascript:void(0);">
+                                            <span>component</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div heading="component" [class.active]="isActive('default','template')"
+                                         class="tab-pane">
+                                        <pre>
+
+
+        <ol class="linenums"><li class="L0"><span class="tag">&lt;ngx-virtual-joystick</span><span
+                class="pln"> (</span><span
+                class="atn">onConfirm</span><span class="pln">)</span><span class="pun">=</span><span
+                class="atv">"sendDelete($event)"</span><span class="pln"> (</span><span
+                class="atn">onCancel</span><span class="pln">)</span><span class="pun">=</span><span
+                class="atv">"sendCancel($event)"</span><span class="tag">&gt;</span><span class="tag">&lt;/ngx-click-to-edit&gt;</span></li>
+        </ol></pre>
+                                    </div>
+                                    <div heading="component" [class.active]="isActive('default','component')"
+                                         class="tab-pane">
+                                        <pre class="prettyprint linenums lang-js prettyprinted" style=""><ol
+                                                class="linenums"><li><span class="kwd">import</span><span
+                                                class="pln"> </span><span class="pun">&#123;</span><span
+                                                class="pln"> </span><span class="typ">Component</span><span
+                                                class="pln"> </span><span class="pun">&#125;</span><span class="pln"> from </span><span
+                                                class="str">'@angular/core'</span><span class="pun">;</span></li><li><span
+                                                class="pln">&nbsp;</span></li><li class="L2"><span
+                                                class="lit">@Component</span><span class="pun">(&#123;</span></li><li><span
+                                                class="pln">  selector</span><span class="pun">:</span><span
+                                                class="pln"> </span><span
+                                                class="str">'demo-virtual-joystick-default'</span><span
+                                                class="pun">,</span></li><li><span
+                                                class="pln">  templateUrl</span><span class="pun">:</span><span
+                                                class="pln"> </span><span class="str">'./default.html'</span></li><li><span
+                                                class="pun">&#125;)</span></li><li class="L6"><span
+                                                class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span
+                                                class="pln"> </span><span
+                                                class="typ">DemoVirtualJoystickDefaultComponent</span><span
+                                                class="pln"> </span><span class="pun">&#123;</span></li><li><span
+                                                class="pln">  private msg: string; </span> </li><li></li><li><span
+                                                class="pln">  private sendDelete($event: any): void </span><span
+                                                class="pun">&#123;</span></li><li><span
+                                                class="pln">    this.msg = 'Delete it.'</span></li><li><span
+                                                class="pln">  </span><span class="pun">&#125;</span></li><li></li><li><span
+                                                class="pln">  private sendCancel($event: any): void </span><span
+                                                class="pun">&#123;</span></li><li><span
+                                                class="pln">    this.msg = 'Backoff!'</span></li><li><span
+                                                class="pln">  </span><span class="pun">&#125;</span></li><li><span
+                                                class="pun">&#125;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
