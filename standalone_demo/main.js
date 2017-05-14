@@ -62729,25 +62729,41 @@ var NgxVirtualJoystickComponent = (function () {
         this.center.push(this.width / 2);
         this.center.push(this.height / 2);
     };
+    NgxVirtualJoystickComponent.prototype.onTouchstart = function (event) {
+        this.msg = '' + event;
+        this.handleDownEvent(event.touches[0].clientX, event.touches[0].clientY);
+        return false; // Call preventDefault() on the event
+    };
     NgxVirtualJoystickComponent.prototype.onMousedown = function (event) {
-        this.show = true;
-        this.startX = event.offsetX;
-        this.startY = event.offsetY;
-        this.center = [];
-        this.center.push(event.offsetX);
-        this.center.push(event.offsetY);
+        this.handleDownEvent(event.offsetX, event.offsetY);
         return false; // Call preventDefault() on the event
     };
     NgxVirtualJoystickComponent.prototype.onMouseup = function () {
         this.show = false;
         return false; // Call preventDefault() on the event
     };
-    NgxVirtualJoystickComponent.prototype.onMouseEnter = function (event) {
+    NgxVirtualJoystickComponent.prototype.onTouchMove = function (event) {
+        this.handleMoveEvent(event.touches[0].clientX, event.touches[0].clientY);
+    };
+    NgxVirtualJoystickComponent.prototype.onMouseMove = function (event) {
+        this.handleMoveEvent(event.offsetX, event.offsetY);
+    };
+    NgxVirtualJoystickComponent.prototype.handleDownEvent = function (offsetX, offsetY) {
+        this.show = true;
+        this.startX = offsetX;
+        this.startY = offsetY;
+        this.center = [];
+        this.center.push(offsetX);
+        this.center.push(offsetY);
+    };
+    NgxVirtualJoystickComponent.prototype.handleMoveEvent = function (offsetX, offsetY) {
         if (this.show) {
             this.center = [];
-            this.center.push(event.offsetX);
-            this.center.push(event.offsetY);
-            this.onChange.emit({ deltaX: -1 * (this.startX - event.offsetX), deltaY: this.startY - event.offsetY });
+            this.center.push(offsetX);
+            this.center.push(offsetY);
+            this.onChange.emit({
+                deltaX: -1 * (this.startX - offsetX), deltaY: this.startY - offsetY
+            });
         }
     };
     return NgxVirtualJoystickComponent;
@@ -62774,6 +62790,11 @@ __decorate([
 ], NgxVirtualJoystickComponent.prototype, "stick", void 0);
 __decorate([
     core_1.HostListener('touchstart', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [TouchEvent]),
+    __metadata("design:returntype", Boolean)
+], NgxVirtualJoystickComponent.prototype, "onTouchstart", null);
+__decorate([
     core_1.HostListener('mousedown', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [MouseEvent]),
@@ -62789,11 +62810,16 @@ __decorate([
 ], NgxVirtualJoystickComponent.prototype, "onMouseup", null);
 __decorate([
     core_1.HostListener('touchmove', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [TouchEvent]),
+    __metadata("design:returntype", void 0)
+], NgxVirtualJoystickComponent.prototype, "onTouchMove", null);
+__decorate([
     core_1.HostListener('mousemove', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [MouseEvent]),
     __metadata("design:returntype", void 0)
-], NgxVirtualJoystickComponent.prototype, "onMouseEnter", null);
+], NgxVirtualJoystickComponent.prototype, "onMouseMove", null);
 NgxVirtualJoystickComponent = __decorate([
     core_1.Component({
         selector: 'virtual-joystick',
@@ -67604,7 +67630,7 @@ module.exports = "<div class=\"row\">\n    <div class=\"col-md-10 col-xs-12 col-
 /* 355 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"virtual-joystick\">\n    <stick *ngIf=\"show\" [center]=\"center\" [radius]=\"radius\"></stick>\n    <div class=\"stick-base\" *ngIf=\"show\">\n        <svg>\n            <circle [attr.cx]=\"startX\" [attr.cy]=\"startY\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n        </svg>\n    </div>\n</div>";
+module.exports = "<div class=\"virtual-joystick\">\n    <stick *ngIf=\"show\" [center]=\"center\" [radius]=\"radius\"></stick>\n    <div class=\"stick-base\" *ngIf=\"show\">\n        <svg>\n            <circle [attr.cx]=\"startX\" [attr.cy]=\"startY\" r=\"40\" stroke=\"green\" stroke-width=\"4\" fill=\"yellow\" />\n        </svg>\n    </div>\n    {{ msg }}\n</div>";
 
 /***/ }),
 /* 356 */

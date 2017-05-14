@@ -18,6 +18,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     private center: number[]        = [];
     private startX: number = 100;
     private startY: number = 100;
+    private msg: string;
 
     constructor(private element: ElementRef) {
     }
@@ -28,14 +29,15 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('touchstart', ['$event'])
+    onTouchstart(event: TouchEvent): boolean {
+        this.msg = '' + event;
+        this.handleDownEvent(event.touches[0].clientX, event.touches[0].clientY);
+        return false; // Call preventDefault() on the event
+    }
+
     @HostListener('mousedown', ['$event'])
     onMousedown(event: MouseEvent): boolean {
-        this.show = true;
-        this.startX = event.offsetX;
-        this.startY = event.offsetY;
-        this.center = [];
-        this.center.push(event.offsetX);
-        this.center.push(event.offsetY);
+        this.handleDownEvent(event.offsetX, event.offsetY);
         return false; // Call preventDefault() on the event
     }
 
@@ -48,13 +50,32 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('touchmove', ['$event'])
+    onTouchMove(event: TouchEvent): void {
+        this.handleMoveEvent(event.touches[0].clientX, event.touches[0].clientY);
+    }
+
     @HostListener('mousemove', ['$event'])
-    onMouseEnter(event: MouseEvent): void {
+    onMouseMove(event: MouseEvent): void {
+        this.handleMoveEvent(event.offsetX, event.offsetY);
+    }
+
+    private handleDownEvent(offsetX: number, offsetY: number): void {
+        this.show   = true;
+        this.startX = offsetX;
+        this.startY = offsetY;
+        this.center = [];
+        this.center.push(offsetX);
+        this.center.push(offsetY);
+    }
+
+    private handleMoveEvent(offsetX: number, offsetY: number): void {
         if (this.show) {
             this.center = [];
-            this.center.push(event.offsetX);
-            this.center.push(event.offsetY);
-            this.onChange.emit({deltaX: -1 * (this.startX - event.offsetX), deltaY: this.startY - event.offsetY});
+            this.center.push(offsetX);
+            this.center.push(offsetY);
+            this.onChange.emit({
+                deltaX: -1 * (this.startX - offsetX), deltaY: this.startY - offsetY
+            });
         }
     }
 }
