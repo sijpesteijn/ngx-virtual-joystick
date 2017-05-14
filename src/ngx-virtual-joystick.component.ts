@@ -2,6 +2,7 @@ import {
     AfterViewInit, Component, ElementRef, EventEmitter, HostListener,
     Input, Output, ViewChild,
 } from '@angular/core';
+let offset = require('mouse-event-offset');
 
 @Component({
     selector: 'virtual-joystick',
@@ -30,8 +31,10 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
 
     @HostListener('touchstart', ['$event'])
     onTouchstart(event: TouchEvent): boolean {
-        this.msg = '' + event;
-        this.handleDownEvent(event.touches[0].pageX, event.touches[0].pageY);
+        let target = event.currentTarget;
+        let touch = event.changedTouches[0];
+        let pos = offset(touch, target);
+        this.handleDownEvent(pos[0], pos[1]);
         return false; // Call preventDefault() on the event
     }
 
@@ -51,7 +54,10 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
 
     @HostListener('touchmove', ['$event'])
     onTouchMove(event: TouchEvent): void {
-        this.handleMoveEvent(event.touches[0].pageX, event.touches[0].pageY);
+        let target = event.currentTarget;
+        let touch = event.changedTouches[0];
+        let pos = offset(touch, target);
+        this.handleDownEvent(pos[0], pos[1]);
     }
 
     @HostListener('mousemove', ['$event'])

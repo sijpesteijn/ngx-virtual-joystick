@@ -88,6 +88,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
     "less": "^2.7.2",
+    "mouse-event-offset": "^3.0.2",
     "phantomjs-prebuilt": "^2.1.7",
     "rimraf": "^2.6.1",
     "rxjs": "^5.0.1",
