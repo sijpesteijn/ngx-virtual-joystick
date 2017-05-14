@@ -62773,18 +62773,22 @@ __decorate([
     __metadata("design:type", core_1.ElementRef)
 ], NgxVirtualJoystickComponent.prototype, "stick", void 0);
 __decorate([
+    core_1.HostListener('touchstart', ['$event']),
     core_1.HostListener('mousedown', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [MouseEvent]),
     __metadata("design:returntype", Boolean)
 ], NgxVirtualJoystickComponent.prototype, "onMousedown", null);
 __decorate([
+    core_1.HostListener('touchend', ['$event']),
+    core_1.HostListener('touchcancel', ['$event']),
     core_1.HostListener('mouseup'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Boolean)
 ], NgxVirtualJoystickComponent.prototype, "onMouseup", null);
 __decorate([
+    core_1.HostListener('touchmove', ['$event']),
     core_1.HostListener('mousemove', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [MouseEvent]),
