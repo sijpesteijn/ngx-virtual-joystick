@@ -31,7 +31,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @HostListener('touchstart', ['$event'])
     onTouchstart(event: TouchEvent): boolean {
         this.msg = '' + event;
-        this.handleDownEvent(event.touches[0].screenX, event.touches[0].screenY);
+        this.handleDownEvent(event.touches[0].pageX, event.touches[0].pageY);
         return false; // Call preventDefault() on the event
     }
 
@@ -51,7 +51,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
 
     @HostListener('touchmove', ['$event'])
     onTouchMove(event: TouchEvent): void {
-        this.handleMoveEvent(event.touches[0].screenX, event.touches[0].screenY);
+        this.handleMoveEvent(event.touches[0].pageX, event.touches[0].pageY);
     }
 
     @HostListener('mousemove', ['$event'])
