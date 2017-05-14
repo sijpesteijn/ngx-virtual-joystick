@@ -27,6 +27,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
         this.center.push(this.height / 2);
     }
 
+    @HostListener('touchstart', ['$event'])
     @HostListener('mousedown', ['$event'])
     onMousedown(event: MouseEvent): boolean {
         this.show = true;
@@ -38,12 +39,15 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
         return false; // Call preventDefault() on the event
     }
 
+    @HostListener('touchend', ['$event'])
+    @HostListener('touchcancel', ['$event'])
     @HostListener('mouseup')
     onMouseup(): boolean {
         this.show = false;
         return false; // Call preventDefault() on the event
     }
 
+    @HostListener('touchmove', ['$event'])
     @HostListener('mousemove', ['$event'])
     onMouseEnter(event: MouseEvent): void {
         if (this.show) {
