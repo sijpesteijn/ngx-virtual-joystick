@@ -62731,7 +62731,7 @@ var NgxVirtualJoystickComponent = (function () {
     };
     NgxVirtualJoystickComponent.prototype.onTouchstart = function (event) {
         this.msg = '' + event;
-        this.handleDownEvent(event.touches[0].clientX, event.touches[0].clientY);
+        this.handleDownEvent(event.touches[0].screenX, event.touches[0].screenY);
         return false; // Call preventDefault() on the event
     };
     NgxVirtualJoystickComponent.prototype.onMousedown = function (event) {
@@ -62743,7 +62743,7 @@ var NgxVirtualJoystickComponent = (function () {
         return false; // Call preventDefault() on the event
     };
     NgxVirtualJoystickComponent.prototype.onTouchMove = function (event) {
-        this.handleMoveEvent(event.touches[0].clientX, event.touches[0].clientY);
+        this.handleMoveEvent(event.touches[0].screenX, event.touches[0].screenY);
     };
     NgxVirtualJoystickComponent.prototype.onMouseMove = function (event) {
         this.handleMoveEvent(event.offsetX, event.offsetY);
