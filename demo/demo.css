@@ -22,3 +22,9 @@
 .atv {
     color: #647f11;
 }
+
+.delta {
+    position: absolute;
+    color: white;
+    padding-left: 3px;
+}

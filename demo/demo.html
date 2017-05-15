@@ -40,8 +40,8 @@
                     <p>Default usage.</p>
 
                     <div class="section cte-example">
+                        <span class="delta" *ngIf="point">deltaX: {{ point?.deltaX }} deltaY: {{ point?.deltaY }}</span>
                         <virtual-joystick (onChange)="show($event)"></virtual-joystick>
-                        deltaX: {{ point?.deltaX }} deltaY: {{ point?.deltaY }}
                     </div>
                     <div class="section">
                         <div class="item">
