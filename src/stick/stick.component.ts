@@ -11,7 +11,6 @@ export class StickComponent {
     @Input('height') height: number;
     @Input('center')
     set theCenter(center: number[]) {
-        console.log(center);
         this.left = center[0];
         this.top = center[1];
     }

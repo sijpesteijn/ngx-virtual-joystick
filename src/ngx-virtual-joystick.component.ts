@@ -30,7 +30,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('touchstart', ['$event'])
-    onTouchstart(event: TouchEvent): boolean {
+    onTouchstart(event: any): boolean {
         if (!this.show) {
             let target: any   = event.currentTarget;
             let touch: any    = event.changedTouches[0];
@@ -55,7 +55,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('touchmove', ['$event'])
-    onTouchMove(event: TouchEvent): void {
+    onTouchMove(event: any): void {
         let target: any = event.currentTarget;
         let touch: any = event.changedTouches[0];
         let pos: number[] = offset(touch, target);

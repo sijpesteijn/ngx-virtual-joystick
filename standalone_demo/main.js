@@ -62799,7 +62799,7 @@ __decorate([
 __decorate([
     core_1.HostListener('touchstart', ['$event']),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [TouchEvent]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Boolean)
 ], NgxVirtualJoystickComponent.prototype, "onTouchstart", null);
 __decorate([
@@ -62819,7 +62819,7 @@ __decorate([
 __decorate([
     core_1.HostListener('touchmove', ['$event']),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [TouchEvent]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], NgxVirtualJoystickComponent.prototype, "onTouchMove", null);
 __decorate([
@@ -62864,7 +62864,6 @@ var StickComponent = (function () {
     }
     Object.defineProperty(StickComponent.prototype, "theCenter", {
         set: function (center) {
-            console.log(center);
             this.left = center[0];
             this.top = center[1];
         },
