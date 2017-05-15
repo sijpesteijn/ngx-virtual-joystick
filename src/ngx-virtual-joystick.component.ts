@@ -31,10 +31,12 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
 
     @HostListener('touchstart', ['$event'])
     onTouchstart(event: TouchEvent): boolean {
-        let target: any = event.currentTarget;
-        let touch: any = event.changedTouches[0];
-        let pos: number[] = offset(touch, target);
-        this.handleDownEvent(pos[0], pos[1]);
+        if (!this.show) {
+            let target: any   = event.currentTarget;
+            let touch: any    = event.changedTouches[0];
+            let pos: number[] = offset(touch, target);
+            this.handleDownEvent(pos[0], pos[1]);
+        }
         return false; // Call preventDefault() on the event
     }
 
