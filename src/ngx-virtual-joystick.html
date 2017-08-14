@@ -1,9 +1,0 @@
-<div class="virtual-joystick">
-    <stick *ngIf="show" [center]="center" [radius]="radius"></stick>
-    <div class="stick-base" *ngIf="show">
-        <svg>
-            <circle [attr.cx]="startX" [attr.cy]="startY" r="40" stroke="green" stroke-width="4" fill="yellow" />
-        </svg>
-    </div>
-    {{ msg }}
-</div>
