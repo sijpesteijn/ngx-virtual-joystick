@@ -8,3 +8,4 @@ npm-debug.log
 /"fontawesome-webfont-*"
 /main-*.js
 /.project
+/dist/
