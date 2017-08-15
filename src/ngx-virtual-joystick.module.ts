@@ -1,8 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgxVirtualJoystickComponent } from './src/ngx-virtual-joystick.component';
-import { StickComponent } from './src/stick/stick.component';
+import { NgxVirtualJoystickComponent } from './ngx-virtual-joystick.component';
+import { StickComponent } from './stick/stick.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +17,7 @@ import { StickComponent } from './src/stick/stick.component';
         NgxVirtualJoystickComponent
     ],
     entryComponents: [
+        NgxVirtualJoystickComponent
     ]
 })
 export class NgxVirtualJoystickModule {

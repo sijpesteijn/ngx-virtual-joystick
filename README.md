@@ -47,7 +47,7 @@ Finally use in one of your apps components:
 import { Component } from '@angular/core';
 
 @Component({
-  template: '<ngx-virtual-joystick></ngx-virtual-joystick>'
+  template: '<virtual-joystick></virtual-joystick>'
 })
 export class MyComponent {}
 ```

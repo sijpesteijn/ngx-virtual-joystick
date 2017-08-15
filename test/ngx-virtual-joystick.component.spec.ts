@@ -4,7 +4,7 @@ import {
     TestBed, async
 } from '@angular/core/testing';
 
-import { NgxVirtualJoystickModule } from '../index';
+import { NgxVirtualJoystickModule } from '../src/index';
 import { NgxVirtualJoystickComponent } from '../src/ngx-virtual-joystick.component';
 
 describe('virtual-joystick component', () => {

@@ -5,20 +5,24 @@ export default function(config) {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: './',
-
+      // plugins: [
+      //     'karma-jasmine',
+      //     'karma-PhantomJS-launcher',
+      //     'karma-webpack'
+      // ],
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [
-      'test/angular-confirmation-popover.spec.ts'
+        { pattern: 'karma-main.js', watched: false }
     ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/angular-confirmation-popover.spec.ts': ['webpack', 'sourcemap']
+      'test/ngx-virtual-joystick.component.spec.ts': ['webpack', 'sourcemap']
     },
 
     webpack: {

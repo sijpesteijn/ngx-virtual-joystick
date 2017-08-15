@@ -6,8 +6,31 @@ let offset: any = require('mouse-event-offset');
 
 @Component({
     selector: 'virtual-joystick',
-    template: require('./ngx-virtual-joystick.html'),
-    styles  : [require('./ngx-virtual-joystick.css')]
+    template: `<div class="virtual-joystick">
+    <stick *ngIf="show" [center]="center" [radius]="radius"></stick>
+    <div class="stick-base" *ngIf="show">
+        <svg>
+            <circle [attr.cx]="startX" [attr.cy]="startY" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        </svg>
+    </div>
+</div>`,
+    styles  : [`
+.virtual-joystick {
+    width: 100%;
+    height: 100%;
+    background-color: #7a8b94;
+}
+
+.stick, .stick-base {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.stick-base > svg {
+    width: 100%;
+    height: 100%;
+}`]
 })
 export class NgxVirtualJoystickComponent implements AfterViewInit {
     @Input('width') width: number   = 100;
@@ -15,11 +38,10 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @Input('radius') radius: number = 20;
     @Output('onChange') onChange: EventEmitter<any> = new EventEmitter();
     @ViewChild('stick') stick: ElementRef;
-    private show: boolean           = false;
-    private center: number[]        = [];
-    private startX: number = 100;
-    private startY: number = 100;
-    private msg: string;
+    show: boolean           = false;
+    center: number[]        = [];
+    startX: number = 100;
+    startY: number = 100;
 
     constructor(private element: ElementRef) {
     }
@@ -39,7 +61,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('mousedown', ['$event'])
-    onMousedown(event: MouseEvent): boolean {
+    onMousedown(event: any): boolean {
         this.handleDownEvent(event.offsetX, event.offsetY);
         return false; // Call preventDefault() on the event
     }
@@ -61,7 +83,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('mousemove', ['$event'])
-    onMouseMove(event: MouseEvent): void {
+    onMouseMove(event: any): void {
         this.handleMoveEvent(event.offsetX, event.offsetY);
     }
 

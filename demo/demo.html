@@ -17,7 +17,8 @@
                         <li><a fragment="examples" routerlink="." href="#examples">Examples</a>
                             <ul>
                                 <li><a fragment="default" routerlink="." href="#default">Default</a></li>
-                                <li><a fragment="custom_question" routerlink="." href="#custom_question">Custom question</a></li>
+                                <li><a fragment="custom_question" routerlink="." href="#custom_question">Custom
+                                    question</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -66,12 +67,9 @@
                                         <pre>
 
 
-        <ol class="linenums"><li class="L0"><span class="tag">&lt;ngx-virtual-joystick</span><span
-                class="pln"> (</span><span
-                class="atn">onConfirm</span><span class="pln">)</span><span class="pun">=</span><span
-                class="atv">"sendDelete($event)"</span><span class="pln"> (</span><span
-                class="atn">onCancel</span><span class="pln">)</span><span class="pun">=</span><span
-                class="atv">"sendCancel($event)"</span><span class="tag">&gt;</span><span class="tag">&lt;/ngx-click-to-edit&gt;</span></li>
+        <ol class="linenums"><li class="L0"><span class="tag">&lt;virtual-joystick</span><span class="pln"> (</span><span
+                class="atn">onChange</span><span class="pln">)</span><span class="pun">=</span><span class="atv">"onChange($event)"</span><span
+                class="tag">&gt;</span><span class="tag">&lt;/virtual-joystick&gt;</span></li>
         </ol></pre>
                                     </div>
                                     <div heading="component" [class.active]="isActive('default','component')"
@@ -94,15 +92,10 @@
                                                 class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span
                                                 class="pln"> </span><span
                                                 class="typ">DemoVirtualJoystickDefaultComponent</span><span
-                                                class="pln"> </span><span class="pun">&#123;</span></li><li><span
-                                                class="pln">  private msg: string; </span> </li><li></li><li><span
-                                                class="pln">  private sendDelete($event: any): void </span><span
+                                                class="pln"> </span><span class="pun">&#123;</span></li><li></li><li><span
+                                                class="pln">  private onChange($event: any): void </span><span
                                                 class="pun">&#123;</span></li><li><span
-                                                class="pln">    this.msg = 'Delete it.'</span></li><li><span
-                                                class="pln">  </span><span class="pun">&#125;</span></li><li></li><li><span
-                                                class="pln">  private sendCancel($event: any): void </span><span
-                                                class="pun">&#123;</span></li><li><span
-                                                class="pln">    this.msg = 'Backoff!'</span></li><li><span
+                                                class="pln">    console.log('deltaX: ' + event.deltaX + ', deltaY: ' + event.deltaY);</span></li><li><span
                                                 class="pln">  </span><span class="pun">&#125;</span></li><li><span
                                                 class="pun">&#125;</span></li></ol></pre>
                                     </div>
