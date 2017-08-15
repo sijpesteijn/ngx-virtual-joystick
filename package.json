@@ -1,6 +1,6 @@
 {
   "name": "ngx-virtual-joystick",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "./dist/umd/ngx-virtual-joystick.js",
   "module": "./dist/esm/src/index.js",
