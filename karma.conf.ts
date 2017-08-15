@@ -5,11 +5,6 @@ export default function(config) {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: './',
-      // plugins: [
-      //     'karma-jasmine',
-      //     'karma-PhantomJS-launcher',
-      //     'karma-webpack'
-      // ],
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
@@ -22,7 +17,7 @@ export default function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/ngx-virtual-joystick.component.spec.ts': ['webpack', 'sourcemap']
+      'karma-main.js': ['webpack', 'sourcemap']
     },
 
     webpack: {
@@ -49,27 +44,17 @@ export default function(config) {
           loader: 'istanbul-instrumenter-loader',
           enforce: 'post'
         }]
-      },
-      plugins: [
-        new webpack.SourceMapDevToolPlugin({
-          filename: null,
-          test: /\.(ts|js)($|\?)/i
-        }),
-        new webpack.ContextReplacementPlugin(
-          /angular(\\|\/)core(\\|\/)@angular/,
-          __dirname + '/src'
-        )
-      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
+      }
     },
 
     coverageIstanbulReporter: {
       reports: ['text-summary', 'html', 'lcovonly'],
       fixWebpackSourcePaths: true,
       thresholds: {
-        statements: 80,
-        lines: 80,
-        branches: 80,
-        functions: 80
+        statements: 50,
+        lines: 50,
+        branches: 50,
+        functions: 50
       }
     },
 

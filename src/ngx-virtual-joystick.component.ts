@@ -10,7 +10,8 @@ let offset: any = require('mouse-event-offset');
     <stick *ngIf="show" [center]="center" [radius]="radius"></stick>
     <div class="stick-base" *ngIf="show">
         <svg>
-            <circle [attr.cx]="startX" [attr.cy]="startY" r="40" stroke="green" stroke-width="4" fill="yellow" />
+            <circle [attr.cx]="startX" [attr.cy]="startY" [attr.r]="40"
+              [attr.stroke]="'green'" [attr.stroke-width]="4" [attr.fill]="'yellow'" />
         </svg>
     </div>
 </div>`,
@@ -40,8 +41,8 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @ViewChild('stick') stick: ElementRef;
     show: boolean           = false;
     center: number[]        = [];
-    startX: number = 100;
-    startY: number = 100;
+    startX: number = 0;
+    startY: number = 0;
 
     constructor(private element: ElementRef) {
     }
@@ -52,16 +53,18 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     }
 
     @HostListener('touchstart', ['$event'])
-    onTouchstart(event: any): boolean {
+    onTouchStart(event: any): boolean {
         let target: any   = event.currentTarget;
+      console.log('Target ', target);
         let touch: any    = event.changedTouches[0];
+      console.log('Touch ', touch);
         let pos: number[] = offset(touch, target);
         this.handleDownEvent(pos[0], pos[1]);
         return false; // Call preventDefault() on the event
     }
 
     @HostListener('mousedown', ['$event'])
-    onMousedown(event: any): boolean {
+    onMouseDown(event: any): boolean {
         this.handleDownEvent(event.offsetX, event.offsetY);
         return false; // Call preventDefault() on the event
     }
@@ -69,7 +72,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @HostListener('touchend', ['$event'])
     @HostListener('touchcancel', ['$event'])
     @HostListener('mouseup')
-    onMouseup(): boolean {
+    onMouseUp(): boolean {
         this.show = false;
         return false; // Call preventDefault() on the event
     }

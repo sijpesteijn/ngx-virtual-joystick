@@ -8,7 +8,7 @@ require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
 
-var appContext = require.context('./src', true, /\.spec\.ts/); // Assuming test case files ends with spec.ts
+var appContext = require.context('./test', true, /\.spec\.ts/); // Assuming test case files ends with spec.ts
 
 appContext.keys().forEach(appContext);
 
