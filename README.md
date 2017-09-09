@@ -1,4 +1,7 @@
 # ngx virtual joystick
+
+Angular 4 Click to edit component
+
 [![Build Status](https://travis-ci.org/sijpesteijn/ngx-virtual-joystick.svg?branch=master)](https://travis-ci.org/sijpesteijn/ngx-virtual-joystick)
 [![codecov](https://codecov.io/gh/sijpesteijn/ngx-virtual-joystick/branch/master/graph/badge.svg)](https://codecov.io/gh/sijpesteijn/ngx-virtual-joystick)
 [![npm version](https://badge.fury.io/js/ngx-virtual-joystick.svg)](http://badge.fury.io/js/ngx-virtual-joystick)
