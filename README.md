@@ -66,24 +66,6 @@ You may also find it useful to view the [demo source](https://github.com/sijpest
 All documentation is auto-generated from the source via [compodoc](https://compodoc.github.io/compodoc/) and can be viewed here:
 https://sijpesteijn.github.io/ngx-virtual-joystick/docs/
 
-## Development
-
-### Prepare your environment
-* Install [Node.js](http://nodejs.org/) and NPM
-* Install local dev dependencies: `npm install` while current directory is this repo
-
-### Development server
-Run `npm start` to start a development server on port 8000 with auto reload + tests.
-
-### Testing
-Run `npm test` to run tests once or `npm run test:watch` to continually run tests.
-
-### Release
-* Bump the version in package.json (once the module hits 1.0 this will become automatic)
-```bash
-npm run release
-```
-
 ## License
 
 MIT

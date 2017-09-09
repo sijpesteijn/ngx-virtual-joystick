@@ -1,10 +1,10 @@
 {
   "name": "ngx-virtual-joystick",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
-  "main": "./dist/umd/ngx-virtual-joystick.js",
-  "module": "./dist/esm/src/index.js",
-  "typings": "./dist/esm/src/index.d.ts",
+  "main": "./dist/ngx-virtual-joystick.js",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "clean:all": "npm run clean && npm cache clean --force && rimraf -- node_modules doc coverage dist  'src/**/*.js' 'src/**/*.js.map' 'test/**/*.js' 'test/**/*.js.map' 'tools/**/*.js' 'tools/**/*.js.map'",
     "clean": "npm run rimraf -- bundles",
