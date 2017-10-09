@@ -17,8 +17,7 @@
                         <li><a fragment="examples" routerlink="." href="#examples">Examples</a>
                             <ul>
                                 <li><a fragment="default" routerlink="." href="#default">Default</a></li>
-                                <li><a fragment="custom_question" routerlink="." href="#custom_question">Custom
-                                    question</a></li>
+                                <li><a fragment="custom_question" routerlink="." href="#resetonrelease">Reset on release</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -41,8 +40,8 @@
                     <p>Default usage.</p>
 
                     <div class="section cte-example">
-                        <span class="delta" *ngIf="point">deltaX: {{ point?.deltaX }} deltaY: {{ point?.deltaY }}</span>
-                        <virtual-joystick (onChange)="show($event)"></virtual-joystick>
+                        <span class="delta" *ngIf="point1">deltaX: {{ point1?.deltaX }} deltaY: {{ point1?.deltaY }}</span>
+                        <virtual-joystick (onChange)="showPoint1($event)"></virtual-joystick>
                     </div>
                     <div class="section">
                         <div class="item">
@@ -104,6 +103,74 @@
                         </div>
                     </div>
 
+                    <h2 fragment="default" id="resetonrelease" routerlink=".">Reset on release.</h2>
+
+                    <p>Reset on release.</p>
+
+                    <div class="section cte-example">
+                        <span class="delta" *ngIf="point2">deltaX: {{ point2?.deltaX }} deltaY: {{ point2?.deltaY }}</span>
+                        <virtual-joystick (onChange)="showPoint2($event)" [resetOnRelease]="false"></virtual-joystick>
+                    </div>
+                    <div class="section">
+                        <div class="item">
+                            <div class="tab-container">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item" [class.active]="isActive('default','template')">
+                                        <a class="nav-link" (click)="activate('default','template')"
+                                           href="javascript:void(0);">
+                                            <span>template</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" [class.active]="isActive('default','component')">
+                                        <a class="nav-link" (click)="activate('default','component')"
+                                           href="javascript:void(0);">
+                                            <span>component</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div heading="component" [class.active]="isActive('default','template')"
+                                         class="tab-pane">
+                                        <pre>
+
+
+        <ol class="linenums"><li class="L0"><span class="tag">&lt;virtual-joystick</span><span class="pln"> (</span><span
+                class="atn">onChange</span><span class="pln">)</span><span class="pun">=</span><span class="atv">"onChange($event)"</span><span class="pln"> [</span><span
+                class="atn">resetOnRelease</span><span class="pln">]</span><span class="pun">=</span><span class="atv">"false"</span><span
+                class="tag">&gt;</span><span class="tag">&lt;/virtual-joystick&gt;</span></li>
+        </ol></pre>
+                                    </div>
+                                    <div heading="component" [class.active]="isActive('default','component')"
+                                         class="tab-pane">
+                                        <pre class="prettyprint linenums lang-js prettyprinted" style=""><ol
+                                                class="linenums"><li><span class="kwd">import</span><span
+                                                class="pln"> </span><span class="pun">&#123;</span><span
+                                                class="pln"> </span><span class="typ">Component</span><span
+                                                class="pln"> </span><span class="pun">&#125;</span><span class="pln"> from </span><span
+                                                class="str">'@angular/core'</span><span class="pun">;</span></li><li><span
+                                                class="pln">&nbsp;</span></li><li class="L2"><span
+                                                class="lit">@Component</span><span class="pun">(&#123;</span></li><li><span
+                                                class="pln">  selector</span><span class="pun">:</span><span
+                                                class="pln"> </span><span
+                                                class="str">'demo-virtual-joystick-default'</span><span
+                                                class="pun">,</span></li><li><span
+                                                class="pln">  templateUrl</span><span class="pun">:</span><span
+                                                class="pln"> </span><span class="str">'./default.html'</span></li><li><span
+                                                class="pun">&#125;)</span></li><li class="L6"><span
+                                                class="kwd">export</span><span class="pln"> </span><span class="kwd">class</span><span
+                                                class="pln"> </span><span
+                                                class="typ">DemoVirtualJoystickDefaultComponent</span><span
+                                                class="pln"> </span><span class="pun">&#123;</span></li><li></li><li><span
+                                                class="pln">  private onChange($event: any): void </span><span
+                                                class="pun">&#123;</span></li><li><span
+                                                class="pln">    console.log('deltaX: ' + event.deltaX + ', deltaY: ' + event.deltaY);</span></li><li><span
+                                                class="pln">  </span><span class="pun">&#125;</span></li><li><span
+                                                class="pun">&#125;</span></li></ol></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

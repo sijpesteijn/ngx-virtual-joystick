@@ -9,11 +9,12 @@ require('font-awesome/css/font-awesome.css');
 })
 export class DemoComponent {
     private sections: Map<string, string> = new Map<string, string>();
-    private point: any;
+    private point1: any;
+    private point2: any;
 
     constructor() {
         this.sections.set('default', 'template');
-        this.sections.set('custom_question', 'template');
+        this.sections.set('resetonrelease', 'template');
     }
 
     private activate(section: string, tab: string): void {
@@ -23,7 +24,11 @@ export class DemoComponent {
         return this.sections.get(section) === tab;
     }
 
-    private show($event: any): void {
-        this.point = $event;
+    private showPoint1($event: any): void {
+        this.point1 = $event;
+    }
+
+    private showPoint2($event: any): void {
+        this.point2 = $event;
     }
 }

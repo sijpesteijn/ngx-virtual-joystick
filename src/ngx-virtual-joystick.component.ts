@@ -37,6 +37,7 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @Input('width') width: number   = 100;
     @Input('height') height: number = 100;
     @Input('radius') radius: number = 20;
+    @Input('resetOnRelease') resetOnRelease: boolean = true;
     @Output('onChange') onChange: EventEmitter<any> = new EventEmitter();
     @ViewChild('stick') stick: ElementRef;
     show: boolean           = false;
@@ -74,6 +75,9 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @HostListener('mouseup')
     onMouseUp(): boolean {
         this.show = false;
+        if (this.resetOnRelease) {
+            this.onChange.emit({ deltaX: 0, deltaY: 0 });
+        }
         return false; // Call preventDefault() on the event
     }
 
