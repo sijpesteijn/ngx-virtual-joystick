@@ -4,7 +4,7 @@ import { Component, ElementRef, Input } from '@angular/core';
     selector: 'stick',
     template: `<div class="stick">
     <svg>
-        <circle [attr.cx]="left" [attr.cy]="top" [attr.r]="radius" fill="green"/>
+        <circle [attr.cx]="left" [attr.cy]="top" [attr.r]="radius" [attr.fill]="corecolor"/>
     </svg>
 </div>`,
     styles: [`
@@ -22,6 +22,7 @@ import { Component, ElementRef, Input } from '@angular/core';
 })
 export class StickComponent {
     @Input('radius') radius: number;
+    @Input('corecolor') corecolor: string;
     @Input('width') width: number;
     @Input('height') height: number;
     @Input('center')
