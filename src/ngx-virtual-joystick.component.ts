@@ -7,11 +7,11 @@ let offset: any = require('mouse-event-offset');
 @Component({
     selector: 'virtual-joystick',
     template: `<div class="virtual-joystick">
-    <stick *ngIf="show" [center]="center" [radius]="radius"></stick>
+    <stick *ngIf="show" [center]="center" [radius]="radius" [corecolor]="corecolor"></stick>
     <div class="stick-base" *ngIf="show">
         <svg>
             <circle [attr.cx]="startX" [attr.cy]="startY" [attr.r]="40"
-              [attr.stroke]="'green'" [attr.stroke-width]="4" [attr.fill]="'yellow'" />
+             [attr.stroke]="corecolor" [attr.stroke-width]="2" [attr.fill]="fillcolor" />
         </svg>
     </div>
 </div>`,
@@ -19,7 +19,6 @@ let offset: any = require('mouse-event-offset');
 .virtual-joystick {
     width: 100%;
     height: 100%;
-    background-color: #7a8b94;
 }
 
 .stick, .stick-base {
@@ -37,6 +36,8 @@ export class NgxVirtualJoystickComponent implements AfterViewInit {
     @Input('width') width: number   = 100;
     @Input('height') height: number = 100;
     @Input('radius') radius: number = 20;
+    @Input('corecolor') corecolor: string = '#8bc34a';
+    @Input('fillcolor') fillcolor: string = '#9e9e9e';
     @Input('resetOnRelease') resetOnRelease: boolean = true;
     @Output('onChange') onChange: EventEmitter<any> = new EventEmitter();
     @ViewChild('stick') stick: ElementRef;
